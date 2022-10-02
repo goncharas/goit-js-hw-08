@@ -1,7 +1,6 @@
 // Add imports above this line
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
-
 import { galleryItems } from './gallery-items';
 // Change code below this line
 
@@ -19,14 +18,17 @@ function createGallery(galleryItems) {
     })
     .join('');
 }
-imageConteiner.addEventListener('click', onClickImage);
+
+// imageConteiner.addEventListener('click', onClickImage);
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
+  // captionPosition: 'bottom',
   captionDelay: 250,
 });
-function onClickImage(evt) {
-  evt.preventDefault();
-  if (evt.target.nodeName !== 'IMG') {
-    return;
-  }
-}
+// function onClickImage(evt) {
+//   evt.preventDefault();
+//   if (evt.target.nodeName !== 'IMG') {
+//     return;
+//   }
+// }
+

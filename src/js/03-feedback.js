@@ -18,13 +18,14 @@ function onFormSubmit(evt) {
   evt.preventDefault();
   const lenghtFormData = Object.keys(formData).length;
 
-  if (lenghtFormData < 2) {
-    alert('please fill in the field');
+  if (!form.elements.email.value || !form.elements.message.value) {
+    return alert('please fill in the field');
   }
+  
   console.log(formData);
   evt.currentTarget.reset();
   localStorage.removeItem('formData');
-  for (var key in formData) {
+  for (let key in formData) {
     delete formData[key];
   }
 }
@@ -32,7 +33,7 @@ function onFormSubmit(evt) {
 function setFormData() {
   const savedMessage = localStorage.getItem('formData');
   const formSavedMessage = JSON.parse(savedMessage);
-  console.log(formSavedMessage);
+  // console.log(formSavedMessage);
   if (savedMessage) {
     console.log(savedMessage);
     textarea.value = formSavedMessage.message;
