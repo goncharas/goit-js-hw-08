@@ -25,9 +25,6 @@ function onFormSubmit(evt) {
   console.log(formData);
   evt.currentTarget.reset();
   localStorage.removeItem('formData');
-  for (let key in formData) {
-    delete formData[key];
-  }
 }
 
 function setFormData() {
@@ -36,7 +33,11 @@ function setFormData() {
   // console.log(formSavedMessage);
   if (savedMessage) {
     console.log(savedMessage);
-    textarea.value = formSavedMessage.message;
-    inputArea.value = formSavedMessage.email;
+    if (formSavedMessage.message) {
+      textarea.value = formSavedMessage.message;
+    }
+    if (formSavedMessage.email) {
+       inputArea.value = formSavedMessage.email;
+    }
   }
 }
