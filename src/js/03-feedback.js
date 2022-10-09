@@ -10,8 +10,8 @@ form.addEventListener('submit', onFormSubmit);
 form.addEventListener('input', throttle(onFormInput, 1000));
 
 function onFormInput(evt) {
-    formData[evt.target.name] = evt.target.value;
-    localStorage.setItem('formData', JSON.stringify(formData));
+  formData[evt.target.name] = evt.target.value;
+  localStorage.setItem('formData', JSON.stringify(formData));
 }
 
 function onFormSubmit(evt) {
@@ -35,9 +35,11 @@ function setFormData() {
     console.log(savedMessage);
     if (formSavedMessage.message) {
       textarea.value = formSavedMessage.message;
+      formData.message = formSavedMessage.message;
     }
     if (formSavedMessage.email) {
-       inputArea.value = formSavedMessage.email;
+      inputArea.value = formSavedMessage.email;
+      formData.email = formSavedMessage.email;
     }
   }
 }
